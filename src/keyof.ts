@@ -1,3 +1,14 @@
+interface MyObj {
+  foo: string;
+  bar: number;
+}
+
+let key: keyof MyObj;
+key = 'bar';
+console.log(key) // bar
+
+// --------------------------------------------
+
 /**
  * keyofはobjectのkeyを利用する
  */
@@ -18,5 +29,4 @@ function test(info: UserInfo, target: keyof UserInfo) {
 }
 
 const result = test(userInfo, 'name')
-const result2 = test(userInfo, 'age')
-console.log(result, result2) // "yamada",  22
+console.log(result) // "yamada"
