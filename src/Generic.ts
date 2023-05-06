@@ -27,7 +27,7 @@ console.log(data2) // { value1: 123, value2: "hello" }
 
 
 /**
- * Function
+ * Function 1
  */
 function test<T>(arg: T): T {
   return arg;
@@ -42,3 +42,23 @@ function test<T, K>(arg: T, arg2: K): T {
   return arg
 }
 console.log(test(1, 2)); // 1
+
+/**
+ * Function 2
+ */
+interface Some<T> {
+  type: 'Some';
+  value: T;
+}
+function getValue<T>(value: T): Some<T> {
+  return {
+    type: 'Some',
+    value: value
+  };
+}
+
+const someValue = getValue(123);
+console.log(someValue); // { type: 'Some', value: 123 }
+
+const someString = getValue("Hello");
+console.log(someString); // { type: 'Some', value: "Hello" }

@@ -23,10 +23,10 @@ const userInfo = {
 }
 
 // この場合、targetはnameかageになる
-function test(info: UserInfo, target: keyof UserInfo) {
+function testRun(info: UserInfo, target: keyof UserInfo) {
   const keys = info[target]
   return keys
 }
 
-const result = test(userInfo, 'name')
+const result = testRun(userInfo, 'name')
 console.log(result) // "yamada"
