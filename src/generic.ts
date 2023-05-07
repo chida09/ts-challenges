@@ -29,19 +29,19 @@ console.log(data2) // { value1: 123, value2: "hello" }
 /**
  * Function 1
  */
-function test<T>(arg: T): T {
+function genericTest<T>(arg: T): T {
   return arg;
 }
 
-console.log(test(1)); // 1
-console.log(test("Hello")); // "Hello"
-console.log(test(true)); // true
+console.log(genericTest(1)); // 1
+console.log(genericTest("Hello")); // "Hello"
+console.log(genericTest(true)); // true
 
 // 引数2つ
-function test<T, K>(arg: T, arg2: K): T {
+function genericTest2<T, K>(arg: T, arg2: K): T {
   return arg
 }
-console.log(test(1, 2)); // 1
+console.log(genericTest2(1, 2)); // 1
 
 /**
  * Function 2
