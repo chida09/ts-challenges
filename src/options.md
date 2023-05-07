@@ -3,19 +3,4 @@ strictNullChecks
 
 ## ?: 省略可能なプロパティを無効にする
 exactOptionalPropertyTypes
-
-```ts
-type Person = {
-  name: string;
-  age?: number;
-};
-
-const person1: Person = { name: "Alice" };
-const person2: Person = { name: "Bob", age: 30 };
-```
-上記の例では、Person型のageプロパティがオプションとなっています。
-exactOptionalPropertyTypesオプションが有効でない場合、ageプロパティの型はnumber | undefinedと推論されます。
-つまり、person1オブジェクトにageプロパティが存在しない場合、その型はundefinedとなります。
-
-しかし、exactOptionalPropertyTypesオプションが有効になっている場合、ageプロパティの型はnumberと推論されます。
-つまり、person1オブジェクトにageプロパティが存在しない場合、その型はundefinedではなくnumberとなります。
+* [参考](https://qiita.com/uhyo/items/e2fdef2d3236b9bfe74a#exactoptionalpropertytypes%E3%82%B3%E3%83%B3%E3%83%91%E3%82%A4%E3%83%A9%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%A8%E3%81%AE%E9%96%A2%E4%BF%82)
