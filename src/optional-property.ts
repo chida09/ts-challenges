@@ -2,10 +2,11 @@
  * ?修飾子を付けられたプロパティを取得する場合は自動的にundefined型とのunion型になります。
  * よって、それを使う側はこのようにundefinedチェックを行う必要があります。
  */
-function func(obj: MyObj): number {
-  return obj.bar !== undefined ? obj.bar * 100 : 0;
+{
+  function func(obj: MyObj): number {
+    return obj.bar !== undefined ? obj.bar * 100 : 0;
+  }
 }
-
 /**
  * 多くの場合、bar?: number;よりもbar: number | undefinedを優先して使用することをお勧めします。
  * 前者はbarが無い場合に本当に無いのか書き忘れなのか区別ができず、ミスの原因になります。後者の場合は書き忘れを防ぐことができます。

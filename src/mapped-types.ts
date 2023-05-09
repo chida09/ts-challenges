@@ -11,27 +11,29 @@
  *
  * {[P in 'foo' | 'bar']: number} というのは{ foo: number; bar: number; }と同じ意味です。
  */
+{
+  type Obj1 = { [P in 'foo' | 'bar']: number };
 
-type Obj1 = { [P in 'foo' | 'bar']: number };
+  interface Obj2 {
+    foo: number;
+    bar: number;
+  }
 
-interface Obj2 {
-  foo: number;
-  bar: number;
-}
-
-const obj1: Obj1 = {foo: 3, bar: 5};
-const obj2: Obj2 = obj1;
-const obj3: Obj1 = obj2;
+  const obj1: Obj1 = {foo: 3, bar: 5};
+  const obj2: Obj2 = obj1;
+  const obj3: Obj1 = obj2;
 
 // ----------------------------------
 
-type Ob1 = { foo: number, bar: number };
+  type Ob1 = { foo: number, bar: number };
 
-interface Ob2 {
-  foo: number;
-  bar: number;
+  interface Ob2 {
+    foo: number;
+    bar: number;
+  }
+
+  const ob1: Ob1 = {foo: 3, bar: 5};
+  const ob2: Ob2 = obj1;
+  const ob3: Ob1 = obj2;
+
 }
-
-const ob1: Ob1 = {foo: 3, bar: 5};
-const ob2: Ob2 = obj1;
-const ob3: Ob1 = obj2;

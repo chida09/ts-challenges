@@ -1,7 +1,7 @@
 /**
  * example
  */
-function index() {
+{
   interface Obj {
     [key: string]: number;
   }
@@ -20,7 +20,7 @@ function index() {
  * Mapを使うこと
  * https://susisu.hatenablog.com/entry/2021/11/13/222730
  */
-function map() {
+{
   const weekdays = new Map<string, string>([
     ["Sunday", "日曜日"],
     ["Monday", "月曜日"],
@@ -35,7 +35,7 @@ function map() {
 
 }
 
-function indexSignature() {
+{
   interface Weekdays {
     [day: string]: string;
   }

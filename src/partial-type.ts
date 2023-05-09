@@ -5,14 +5,16 @@
  * ちなみに、一般にこのような場合MyObjはMyObj2の部分型であると言います。
  */
 
-interface MyObj {
-  foo: string;
-  bar: number;
-}
+{
+  interface MyObj {
+    foo: string;
+    bar: number;
+  }
 
-interface MyObj2 {
-  foo: string;
-}
+  interface MyObj2 {
+    foo: string;
+  }
 
-const a: MyObj = {foo: 'foo', bar: 3};
-const b: MyObj2 = a;
+  const a: MyObj = {foo: 'foo', bar: 3};
+  const b: MyObj2 = a;
+}
