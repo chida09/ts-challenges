@@ -12,28 +12,60 @@
  * {[P in 'foo' | 'bar']: number} というのは{ foo: number; bar: number; }と同じ意味です。
  */
 {
-  type Obj1 = { [P in 'foo' | 'bar']: number };
+  // type Type = { [P in 'foo' | 'bar']: number };
+  type Type = { foo: number, bar: number };
 
-  interface Obj2 {
+  interface Interface {
     foo: number;
     bar: number;
   }
 
-  const obj1: Obj1 = {foo: 3, bar: 5};
-  const obj2: Obj2 = obj1;
-  const obj3: Obj1 = obj2;
-
+  const obj1: Type = {foo: 3, bar: 5};
+  const obj2: Interface = obj1;
+  const obj3: Type = obj2;
+}
 // ----------------------------------
-
-  type Ob1 = { foo: number, bar: number };
-
-  interface Ob2 {
-    foo: number;
+/**
+ * ここでは型変数Tを持つ型PropNullable<T>を定義しました。
+ * この型は、T型のオブジェクトの各プロパティPの型が、T[P] | null、すなわち元の型であるかnullであるかのいずれかであるようなオブジェクトの型です。
+ * 具体的には、PropNullable<Foo>というのは{foo: string | null; bar: number | null; }という型になります。
+ */
+{
+  type PropNullable<T> = {[P in keyof T]: T[P] | null};
+  interface Foo {
+    foo: string;
     bar: number;
   }
 
-  const ob1: Ob1 = {foo: 3, bar: 5};
-  const ob2: Ob2 = obj1;
-  const ob3: Ob1 = obj2;
+  const obj: PropNullable<Foo> = {
+    foo: 'foobar',
+    bar: null,
+  };
+}
 
+{
+  type IOptional<T> = {[P in keyof T]?: T[P]};
+  interface Foo {
+    foo: string;
+    bar: number;
+  }
+
+  const obj: IOptional<Foo> = {
+    foo: 'foobar',
+    // bar: 1
+  };
+}
+
+{
+  type IRequired<T> = {[P in keyof T]-?: T[P]};
+
+  interface Foo {
+    foo: string;
+    bar: number;
+  }
+
+  const obj: IRequired<Foo> = {
+    foo: 'foobar',
+    bar: 1
+  };
 }
