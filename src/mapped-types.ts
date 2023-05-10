@@ -69,3 +69,20 @@
     bar: 1
   };
 }
+
+/**
+ * mapped typesの限界
+ * mapped typeが導入された当初から指摘されていた問題として、deepなマッピングができないという問題がありました。
+ * 先ほど組み込みのReadonly<T>を紹介しましたが、これはプロパティをshallowにreadonly化します。
+ *
+ * 以下の型に対してReadonly<Obj>は{ readonly foo: string; readonly bar: { hoge: number; }; }となります。
+ * つまり、barの中のhogeはreadonlyになりません。
+ */
+{
+  interface Obj{
+    foo: string;
+    bar: {
+      hoge: number;
+    };
+  }
+}
